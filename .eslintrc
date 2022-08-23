@@ -1,0 +1,35 @@
+{
+  "env": {
+      "browser": true,
+      "es2021": true
+  },
+  "extends": [
+      "google"
+  ],
+  "globals": {
+      "WrapWithCoreProviders": true
+  },
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module",
+      "react": {
+          "version": "detect"
+      }
+  },
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  },
+  "rules": {
+      "max-len": ["error", 100, 2],
+      "no-unused-vars": ["warn"],
+      "quotes": ["warn", "double"],
+      "quote-props": ["error", "as-needed"],
+      "require-jsdoc": "off",
+      "new-cap": "off"
+  }
+}

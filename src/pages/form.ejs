@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <%- include('header.ejs') %>
+  <body>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+      <div class="row">
+        <img class="col s4 offset-s4 center-align" src="static/logo-light.png">
+      </div>
+      <div class="row">
+        <h4 class="col s4 offset-s4 center-align">Incident Intake Form</h4>
+      </div>
+      <form method="post" class="col s6 offset-s3">
+        <div class="input-field">
+          <input type="text" name="incidentName" id="incidentName" required>
+          <label for="incidentName">Please provide a name for this Incident</label>
+        </div>
+        <div class="input-field">
+          <textarea id="incidentDescription" class="materialize-textarea" name="incidentDescription" rows="5" cols="35" value=""></textarea>
+          <label for="incidentDescription">Describe the Incident</label>
+        </div>
+        <div class="input-field">
+          <select name="incidentSeverity" required="" aria-required="true">
+            <option value="" selected>Select an Incident severity</option>
+            <% severities.forEach((severity) => { %>
+              <option value="<%= severity.name %>"><%= severity.name %></option>
+            <%}) %>
+          </select>
+          <label>Select an Incident severity</label>
+        </div>
+        <div class="input-field">
+          <select name="incidentType" required="" aria-required="true">
+            <option value="" selected>Select an Incident type</option>
+            <% incidentTypes.forEach((incidentType) => { %>
+              <option value="<%= incidentType.name %>"><%= incidentType.name %></option>
+            <%}) %>
+          </select>
+          <label>Select an Incident type</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        </button>
+      </form>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>
