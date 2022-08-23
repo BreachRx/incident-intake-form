@@ -1,11 +1,12 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const {GraphQLClient, gql} = require("graphql-request");
+const session = require("express-session");
 const auth = require("basic-auth-token");
-const yup = require("yup");
+const bodyParser = require("body-parser");
+const crypto = require("crypto");
+const {GraphQLClient, gql} = require("graphql-request");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oidc");
-const session = require("express-session");
+const yup = require("yup");
 
 require("dotenv").config();
 const app = express();
@@ -19,8 +20,9 @@ passport.use(new GoogleStrategy({
 }, function(issuer, profile, cb) {
   return cb(null, profile);
 }));
+const fallbackSecret = crypto.randomBytes(64).toString("hex");
 app.use(session({
-  secret: process.env.SESSION_SECRET ?? "a not very random pseudosecret",
+  secret: process.env.SESSION_SECRET ?? fallbackSecret,
   resave: false,
   saveUninitialized: true,
 }));

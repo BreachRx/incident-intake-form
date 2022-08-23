@@ -1,9 +1,9 @@
-# BreachRx Incident Intake Shim Service
-This service is run within a secure network and gives anyone with credentials the ability to submit BreachRx Incidents via an intake form.
+# BreachRx Incident Intake Service
+This service can be run within a secure network and gives anyone with credentials the ability to submit BreachRx Incidents via a "report an incident" intake form.
 
-The intake form itself is just one example of how to allow users to submit Incidents to BreachRx.  
+The intake form itself is just one example of how to allow users to submit incidents to BreachRx.  
 
-Any HTML form can submit to this service, or if you prefer to build a more sophisticated form using [the BreachRx GraphQL API](https://www.breachrx.com/docs/breachrx-api/) you can (and ideally should) do that instead.
+Any HTML form can submit to this service, or if you prefer to build a more sophisticated form using [the BreachRx GraphQL API](https://www.breachrx.com/docs/breachrx-api/) you can (and likely should) do that instead.
 
 ## Setup
 Create a `.env` file with the following contents:
